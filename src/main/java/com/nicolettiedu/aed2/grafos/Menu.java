@@ -176,6 +176,7 @@ public class Menu {
         vertices.forEach(vertice -> {
             vertice.fechado = false;
             vertice.predecessor = null;
+            vertice.distancia = Integer.MAX_VALUE;
         });
     }
 }
