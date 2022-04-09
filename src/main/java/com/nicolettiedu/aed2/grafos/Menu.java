@@ -27,7 +27,7 @@ public class Menu {
             System.out.println("5 - Sair\n");
             int escolha = read.nextInt();
             read.nextLine();
-            if (escolha > 0 && escolha < 5) {
+            if (escolha > 0 && escolha < 6) {
                 switch (escolha) {
                     case 1:
                         adicionarVertice();
@@ -41,9 +41,8 @@ public class Menu {
                     case 4:
                         buscarMenorCaminho();
                         break;
-                    case 5: {
+                    case 5:
                         return;
-                    }
                 }
             }
         }
