@@ -9,50 +9,21 @@ import java.util.List;
  */
 public class Vertice {
 
-    public Integer peso;
+    public Integer distancia = Integer.MAX_VALUE;
 
-    private final List<Vertice> destinos = new ArrayList();
+    public Vertice predecessor = null;
 
-    private final List<Vertice> chegadas = new ArrayList();
+    public boolean fechado = false;
 
-    private final List<Vertice> arestas = new ArrayList();
+    private final List<Aresta> arestas = new ArrayList<Aresta>();
 
-    public Vertice(Integer peso) {
-        this.peso = peso;
+    public List<Aresta> getArestas() {
+        return arestas;
     }
 
-    public List<Vertice> getDestinos() {
-        return destinos;
-    }
-
-    public List<Vertice> getChegadas() {
-        return chegadas;
-    }
-
-    public Integer getPesoArestas() {
-        Integer valor = 0;
-        valor = arestas.stream().map(aresta -> aresta.peso).reduce(valor, Integer::sum);
-        return valor;
-    }
-
-    public void adicionaDestino(Vertice v) {
-        adicionaAresta(v);
-        if (!destinos.contains(v)) {
-            destinos.add(v);
+    public void adicionaAresta(Aresta a) {
+        if (!arestas.contains(a)) {
+            arestas.add(a);
         }
     }
-
-    public void adicionaChegada(Vertice v) {
-        adicionaAresta(v);
-        if (!chegadas.contains(v)) {
-            chegadas.add(v);
-        }
-    }
-
-    private void adicionaAresta(Vertice v) {
-        if (!arestas.contains(v)) {
-            arestas.add(v);
-        }
-    }
-
 }
